@@ -28,7 +28,9 @@ CREATE TABLE project(
   description text CHARACTER SET 'utf8' NOT NULL,
 
   start_date dateTime NOT NULL,
-  finish_date dateTime NOT NULL
+  finish_date dateTime NOT NULL,
+
+  image_path varchar(300) CHARACTER SET 'utf8' NOT NULL
 
 );
 
@@ -63,3 +65,4 @@ CREATE TABLE comment(
   FOREIGN KEY (schedule_id) REFERENCES schedule(id) ON DELETE CASCADE
 
 );
+
