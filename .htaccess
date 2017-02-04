@@ -7,5 +7,5 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
 
-    RewriteRule ^(.*)$ /Start/index.php/$1 [L]
+    RewriteRule ^(.*)$ /roundtable/index.php/$1 [L]
 </IfModule>
