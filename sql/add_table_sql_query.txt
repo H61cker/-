@@ -1,0 +1,12 @@
+#회원가입 당시 사용자 테이블에 값을 추가하면서 동시에 만들어주는 테이블
+#각각 과제, 일정을 참조하는 외래키들이다.
+
+CREATE TABLE [user_id]project (
+  project_id Integer NOT NULL,
+  FOREIGN KEY(project_id) REFERENCES project(id) ON DELETE CASCADE,
+)
+
+CREATE TABLE [user_id]schedule (
+  schedule_id Integer NOT NULL,
+  FOREIGN KEY(schedule_id) REFERENCES schedule(id) ON DELETE CASCADE,
+)
