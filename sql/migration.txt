@@ -14,7 +14,7 @@ CREATE TABLE member(
   age Integer NOT NULL,
   grade Integer NOT NULL,
   class Integer NOT NULL
-
+	
 );
 
 CREATE TABLE project(
@@ -26,8 +26,10 @@ CREATE TABLE project(
   description varchar(20000) NOT NULL,
 
   start_date dateTime NOT NULL,
-  finish_date dateTime NOT NULL
-
+  finish_date dateTime NOT NULL,
+	
+	is_finished Boolean NOT NULL
+	
 );
 
 CREATE TABLE schedule(
@@ -43,7 +45,9 @@ CREATE TABLE schedule(
 
   project_id Integer NOT NULL,
   FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE
-
+	
+	is_finished Boolean NOT NULL
+	
 );
 
 CREATE TABLE comment(
