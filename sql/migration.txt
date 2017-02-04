@@ -1,35 +1,14 @@
-CREATE DATABASE roundTable;
-USE roundTable;
-
-CREATE TABLE member(
-
-  id varchar(30) NOT NULL,
-  PRIMARY KEY(id),
-
-  password varchar(30) NOT NULL,
-  name varchar(10) NOT NULL ,
-
-  authority varchar(10) NOT NULL,
-
-  age Integer NOT NULL,
-  grade Integer NOT NULL,
-  class Integer NOT NULL
-	
-);
-
 CREATE TABLE project(
 
   id Integer NOT NULL AUTO_INCREMENT,
   PRIMARY KEY(id),
 
-  title varchar(200) NOT NULL,
-  description varchar(20000) NOT NULL,
+  title varchar(200) CHARACTER SET 'utf8' NOT NULL,
+  description text CHARACTER SET 'utf8' NOT NULL,
 
   start_date dateTime NOT NULL,
-  finish_date dateTime NOT NULL,
-	
-  is_finished Boolean NOT NULL
-	
+  finish_date dateTime NOT NULL
+
 );
 
 CREATE TABLE schedule(
@@ -37,17 +16,15 @@ CREATE TABLE schedule(
   id Integer NOT NULL AUTO_INCREMENT,
   PRIMARY KEY(id),
 
-  title varchar(200) NOT NULL,
-  description varchar(20000) NOT NULL,
+  title varchar(200) CHARACTER SET 'utf8' NOT NULL,
+  description text NOT NULL,
 
   start_date dateTime NOT NULL,
   finish_date dateTime NOT NULL,
 
   project_id Integer NOT NULL,
-  FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE,
-	
-  is_finished Boolean NOT NULL
-	
+  FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE
+
 );
 
 CREATE TABLE comment(
@@ -55,7 +32,7 @@ CREATE TABLE comment(
   id Integer NOT NULL AUTO_INCREMENT,
   PRIMARY KEY(id),
 
-  body varchar(1000) NOT NULL,
+  body text CHARACTER SET 'utf8' NOT NULL,
   created_at datetime NOT NULL,
 
   member_id varchar(30) NOT NULL,
